@@ -7975,7 +7975,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9604c97d3ac39624285559f67355c5c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireRate: 4
   firePoint: {fileID: 2147223453}
+  damage: 2
+  critChance: 1
+  clipSize: 6
+  reloadTime: 1
   bluebulletPrefab: {fileID: 6025697463652554936, guid: 40e6a662b9b717649a0eb8d04ed9a34c, type: 3}
   bulletForce: 20
 --- !u!1 &1327055025
