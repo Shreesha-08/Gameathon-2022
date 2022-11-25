@@ -7988,7 +7988,7 @@ MonoBehaviour:
   reloadTime: 1
   powerUpCooldownTime: 1
   bluebulletPrefab: {fileID: 6025697463652554936, guid: 40e6a662b9b717649a0eb8d04ed9a34c, type: 3}
-  activatePowerUp: {fileID: 1832143180}
+  activatePowerUp: {fileID: 1832143183}
   firePoint: {fileID: 2147223453}
 --- !u!1 &1327055025
 GameObject:
@@ -10531,7 +10531,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1832143180}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.418515, y: -2.0769727, z: -0.051769193}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10620,14 +10620,14 @@ ParticleSystem:
   serializedVersion: 8
   lengthInSec: 5
   simulationSpeed: 1
-  stopAction: 2
+  stopAction: 1
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
   looping: 1
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 0
   startDelay:
@@ -11874,7 +11874,7 @@ ParticleSystem:
         m_RotationOrder: 4
     separateAxes: 0
   ColorModule:
-    enabled: 0
+    enabled: 1
     gradient:
       serializedVersion: 2
       minMaxState: 1
