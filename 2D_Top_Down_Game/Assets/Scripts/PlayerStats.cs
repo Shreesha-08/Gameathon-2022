@@ -35,10 +35,10 @@ public class PlayerStats : MonoBehaviour {
 	
 	public static int playerMaxHealth {
 		get {
-			return ( PlayerMaxHealth ); 
+			return ( playerMaxHealth ); 
 		}
 		set {
-			PlayerMaxHealth = value;
+			playerMaxHealth = value;
 		}
 	}
 	
@@ -85,6 +85,15 @@ public class PlayerStats : MonoBehaviour {
 		}
 		set {
 			playerReloadTime = value;
+		}
+	}
+
+	public static float playerPowerUpCooldown {
+		get {
+			return ( playerPowerUpCooldown ); 
+		}
+		set {
+			playerPowerUpCooldown = value;
 		}
 	}
 }
