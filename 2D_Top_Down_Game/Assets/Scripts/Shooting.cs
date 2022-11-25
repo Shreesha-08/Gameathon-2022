@@ -5,18 +5,25 @@ using UnityEngine;
 public class Shooting : MonoBehaviour
 {
 	public int fireRate = 0;
-    public Transform firePoint;
 	public int damage = 3;
 	public int critChance = 1;
 	public int clipSize = 6;
 	public static int shotsFired = 0;
-	float timeToFire = 0;
-	public float reloadTime = 1f;
-	
-	private bool reloading = false;
-    public GameObject bluebulletPrefab;
-
 	public float bulletForce = 20f;
+	private float timeToFire = 0;
+
+    // Reloading
+	public float reloadTime = 1f;
+	private bool reloading = false;
+    // Power Up cooldown
+    public float powerUpCooldownTime = 1f;
+    private bool powerUpUnavailable = false;
+    private float powerActiveTime = 2f;
+    private bool powerUpActive = false;
+
+    public GameObject bluebulletPrefab;
+    public ParticleSystem activatePowerUp;
+    public Transform firePoint;
 
     // Update is called once per frame
     void Update()
@@ -46,11 +53,18 @@ public class Shooting : MonoBehaviour
 			if (Input.GetButton ("Fire1")) {
 				if (Time.time > timeToFire) {
 					timeToFire = Time.time + 1/(float)fireRate;
-					Shoot();
+                    Shoot();
 					shotsFired++;
 				}
 			}
 		}
+        if (Input.GetButtonDown("Fire2") && !powerUpUnavailable){
+            powerUpActive = true;
+            powerUpUnavailable=true;
+            activatePowerUp.Play();
+			StartCoroutine ("PowerUpActive");
+			StartCoroutine ("PowerUpCooldown");
+        }
     }
 
     void Shoot () 
@@ -58,6 +72,9 @@ public class Shooting : MonoBehaviour
         GameObject bullet = Instantiate(bluebulletPrefab, firePoint.position, firePoint.rotation);
         
 		float dmg = damage;
+        if (powerUpActive)
+            dmg*=3f;
+            shotsFired=0;
 	
 		if (Random.Range (0, 101) <= critChance)
 			dmg *= Random.Range(2f, 3f);
@@ -70,5 +87,15 @@ public class Shooting : MonoBehaviour
 		yield return new WaitForSeconds (reloadTime);
 		shotsFired = 0;
 		reloading = false;
+	}
+    
+	IEnumerator PowerUpCooldown () {
+		yield return new WaitForSeconds (powerUpCooldownTime);
+		powerUpUnavailable = false;
+	}
+	IEnumerator PowerUpActive () {
+		yield return new WaitForSeconds (powerActiveTime);
+		powerUpActive = false;
+        activatePowerUp.Stop();
 	}
 }
