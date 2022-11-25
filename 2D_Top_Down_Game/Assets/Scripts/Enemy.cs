@@ -8,6 +8,10 @@ public class Enemy : MonoBehaviour
     public float stoppingDistance;
     public float goBackDistance;
 
+    public float Hitpoints;
+    public float MaxHitpoints = 3;
+    public HealthBarEnemy healthBar;
+
     private float timedShots;
     public float startShot;
     public GameObject projectile;
@@ -17,6 +21,18 @@ public class Enemy : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         timedShots = startShot;
+        Hitpoints = MaxHitpoints;
+        healthBar.SetHealth(Hitpoints, MaxHitpoints);
+    }
+
+    public void TakeHit(float damage)
+    {
+        Hitpoints -= damage;
+        healthBar.SetHealth(Hitpoints, MaxHitpoints);
+        if (Hitpoints <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     void Update()
