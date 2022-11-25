@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Shooting : MonoBehaviour
 {
-	public int fireRate = 0;
-	public int damage = 3;
-	public int critChance = 1;
-	public int clipSize = 6;
-	public static int shotsFired = 0;
+	private int fireRate = 0;
+	private int damage = 3;
+	private int critChance = 1;
+	private int clipSize = 6;
+	private static int shotsFired = 0;
 	public float bulletForce = 20f;
 	private float timeToFire = 0;
 

@@ -6,21 +6,23 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField]
     private GameObject shooterPrefab;
-    [SerializeField]
-    private GameObject creeperPrefab;
+    // [SerializeField]
+    // private GameObject creeperPrefab;
 
     [SerializeField]
     private float shooterInterval = 3.5f;
     [SerializeField]
-    private float creeperInterval = 10f;
+    private float startShooterSpawn = 3.5f;
+    // [SerializeField]
+    // private float creeperInterval = 10f;
 
     // Start is called before the first frame update
     void Start()
     {
+        new WaitForSeconds(startShooterSpawn);
         StartCoroutine(spawnEnemy(shooterInterval, shooterPrefab));
-        StartCoroutine(spawnEnemy(creeperInterval, creeperPrefab));
+        // StartCoroutine(spawnEnemy(creeperInterval, creeperPrefab));
     }
-
     private IEnumerator spawnEnemy(float interval, GameObject enemy)
     {
         yield return new WaitForSeconds(interval);
