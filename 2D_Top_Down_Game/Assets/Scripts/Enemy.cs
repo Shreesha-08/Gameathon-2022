@@ -31,6 +31,7 @@ public class Enemy : MonoBehaviour
         healthBar.SetHealth(Hitpoints, MaxHitpoints);
         if (Hitpoints <= 0)
         {
+            ScoreCounter.instance.AddPoint();
             Destroy(gameObject);
         }
     }
