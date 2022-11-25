@@ -6,21 +6,18 @@ public class PlayerStats : MonoBehaviour {
 	public static Vector3 PlayerPosition;
 	public static GameObject PlayerInstance;
 
+	
+	public static int playerMaxHealth=10;
+	public static int playerDamage=1;
+	public static int playerFireRate=0;
+	public static int playerCritChance=5;
+	public static int playerClipSize=6;
+	public static float playerReloadTime=1f;
+	public static float playerPowerUpCooldown=1f;
 	public static void setPlayerScore (int score) {
 		PlayerScore += score;
 	}
-	
-	void Awake () {
-		playerHealth = 10;
-		playerMaxHealth = 10;
-		// Consider Accuracy, Movement Speed
-		playerDamage = 1;
-		playerFireRate = 0;
-		playerCritChance = 1;
-		playerClipSize = 6;
-		playerReloadTime = 1f;
-		playerPowerUpCooldown = 1f;
-	}
+
 	
 	private static int _health = playerMaxHealth;
 	public static int playerHealth {
@@ -32,68 +29,5 @@ public class PlayerStats : MonoBehaviour {
 		}
 	}
 	
-	
-	public static int playerMaxHealth {
-		get {
-			return ( playerMaxHealth ); 
-		}
-		set {
-			playerMaxHealth = value;
-		}
-	}
-	
-	
-	public static int playerDamage {
-		get {
-			return ( playerDamage ); 
-		}
-		set {
-			playerDamage = value;
-		}
-	}
-	
-	public static int playerFireRate {
-		get {
-			return ( playerFireRate ); 
-		}
-		set {
-			playerFireRate = value;
-		}
-	}
-	
-	public static int playerCritChance {
-		get {
-			return ( playerCritChance ); 
-		}
-		set {
-			playerCritChance = Mathf.Clamp (value, 0, 100);
-		}
-	}
-	
-	public static int playerClipSize {
-		get {
-			return ( playerClipSize ); 
-		}
-		set {
-			playerClipSize = value;
-		}
-	}
-	
-	public static float playerReloadTime {
-		get {
-			return ( playerReloadTime ); 
-		}
-		set {
-			playerReloadTime = value;
-		}
-	}
 
-	public static float playerPowerUpCooldown {
-		get {
-			return ( playerPowerUpCooldown ); 
-		}
-		set {
-			playerPowerUpCooldown = value;
-		}
-	}
 }

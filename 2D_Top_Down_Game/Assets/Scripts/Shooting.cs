@@ -25,7 +25,18 @@ public class Shooting : MonoBehaviour
     public ParticleSystem activatePowerUp;
     public Transform firePoint;
 
-    // Update is called once per frame
+	void Start () {
+		damage = PlayerStats.playerDamage;
+		fireRate = PlayerStats.playerFireRate;
+		critChance = PlayerStats.playerCritChance;
+		clipSize = PlayerStats.playerClipSize;
+		reloadTime = PlayerStats.playerReloadTime;
+		powerUpCooldownTime = PlayerStats.playerPowerUpCooldown;
+        Debug.Log(damage);
+		
+		shotsFired = 0;
+	}
+
     void Update()
     {
 
@@ -61,7 +72,8 @@ public class Shooting : MonoBehaviour
         if (Input.GetButtonDown("Fire2") && !powerUpUnavailable){
             powerUpActive = true;
             powerUpUnavailable=true;
-            activatePowerUp.Play();
+            GameObject effect = Instantiate(bluebulletPrefab, firePoint.position, firePoint.rotation, firePoint.transform.parent);
+            Destroy(effect, powerActiveTime);
 			StartCoroutine ("PowerUpActive");
 			StartCoroutine ("PowerUpCooldown");
         }
@@ -96,6 +108,5 @@ public class Shooting : MonoBehaviour
 	IEnumerator PowerUpActive () {
 		yield return new WaitForSeconds (powerActiveTime);
 		powerUpActive = false;
-        activatePowerUp.Stop();
 	}
 }
