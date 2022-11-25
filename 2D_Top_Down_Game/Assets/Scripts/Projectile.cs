@@ -26,6 +26,12 @@ public class Projectile : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            HealthManager.hits_count--;
+            if (HealthManager.hits_count == 0)
+            {
+                HealthManager.hits_count = HealthManager.MAX_HITS;
+                HealthManager.health--;
+            }
             DestroyProjectile();
         }
     }
