@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class HealthBarEnemy : MonoBehaviour
 {
-
     public Slider slider;
     public Color Low;
     public Color High;
