@@ -1730,7 +1730,6 @@ GameObject:
   - component: {fileID: 260328482}
   - component: {fileID: 260328485}
   - component: {fileID: 260328484}
-  - component: {fileID: 260328483}
   - component: {fileID: 260328486}
   m_Layer: 0
   m_Name: rocks5 (1)
@@ -1754,20 +1753,6 @@ Transform:
   m_Father: {fileID: 2080957725}
   m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &260328483
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 260328481}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bc9016655f51a14280d23df4edcfc17, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 5
-  rb: {fileID: 0}
 --- !u!61 &260328484
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5202,8 +5187,9 @@ GameObject:
   m_Component:
   - component: {fileID: 810831796}
   - component: {fileID: 810831795}
+  - component: {fileID: 810831797}
   m_Layer: 0
-  m_Name: rotten1
+  m_Name: LevelMap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5276,6 +5262,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &810831797
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 810831794}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 18.9, y: 14.7}
+    newSize: {x: 18.9, y: 14.7}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 18.9, y: 14.7}
+  m_EdgeRadius: 0
 --- !u!1 &815344893
 GameObject:
   m_ObjectHideFlags: 0
@@ -5420,6 +5432,7 @@ GameObject:
   - component: {fileID: 819483841}
   - component: {fileID: 819483840}
   - component: {fileID: 819483839}
+  - component: {fileID: 819483842}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -5462,7 +5475,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 3
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -5493,6 +5506,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &819483842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 819483838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d8c66b406a76c04bab53134502c4df2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  followTransform: {fileID: 1305048194}
+  mapBounds: {fileID: 810831797}
+  smoothSpeed: 0.5
 --- !u!1 &843791491
 GameObject:
   m_ObjectHideFlags: 0
@@ -7257,7 +7285,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
