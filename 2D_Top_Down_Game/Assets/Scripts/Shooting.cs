@@ -18,11 +18,12 @@ public class Shooting : MonoBehaviour
     // Power Up cooldown
     public float powerUpCooldownTime = 1f;
     private bool powerUpUnavailable = false;
-    private float powerActiveTime = 2f;
+    private float powerActiveTime = 3f;
     private bool powerUpActive = false;
 
     public GameObject bluebulletPrefab;
-    public ParticleSystem activatePowerUp;
+    [SerializeField]
+    private GameObject activatePowerUp;
     public Transform firePoint;
 
 	void Start () {
@@ -32,8 +33,6 @@ public class Shooting : MonoBehaviour
 		clipSize = PlayerStats.playerClipSize;
 		reloadTime = PlayerStats.playerReloadTime;
 		powerUpCooldownTime = PlayerStats.playerPowerUpCooldown;
-        Debug.Log(damage);
-		
 		shotsFired = 0;
 	}
 
@@ -44,6 +43,17 @@ public class Shooting : MonoBehaviour
 			StartCoroutine ("Reload");
 			reloading = true;
 		}
+
+        if (Input.GetButtonDown("Fire2") && (!powerUpUnavailable)){
+            GameObject effect = Instantiate(activatePowerUp, transform.position, Quaternion.identity, firePoint.parent);
+            effect.GetComponent<ParticleSystem>().Play();
+            Destroy(effect, powerActiveTime);
+            powerUpActive = true;
+            powerUpUnavailable=true;
+            PlayerStats.playerHealth-=1;
+			StartCoroutine ("PowerUpActive");
+			StartCoroutine ("PowerUpCooldown");
+        }
 
 		if (reloading)
 			return;
@@ -69,14 +79,6 @@ public class Shooting : MonoBehaviour
 				}
 			}
 		}
-        if (Input.GetButtonDown("Fire2") && !powerUpUnavailable){
-            powerUpActive = true;
-            powerUpUnavailable=true;
-            GameObject effect = Instantiate(bluebulletPrefab, firePoint.position, firePoint.rotation, firePoint.transform.parent);
-            Destroy(effect, powerActiveTime);
-			StartCoroutine ("PowerUpActive");
-			StartCoroutine ("PowerUpCooldown");
-        }
     }
 
     void Shoot () 
@@ -84,9 +86,10 @@ public class Shooting : MonoBehaviour
         GameObject bullet = Instantiate(bluebulletPrefab, firePoint.position, firePoint.rotation);
         
 		float dmg = damage;
-        if (powerUpActive)
-            dmg*=3f;
+        if (powerUpActive){
+            dmg=damage*3f;
             shotsFired=0;
+        }
 	
 		if (Random.Range (0, 101) <= critChance)
 			dmg *= Random.Range(2f, 3f);

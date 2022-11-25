@@ -9,7 +9,7 @@ public class PlayerStats : MonoBehaviour {
 	
 	public static int playerMaxHealth=10;
 	public static int playerDamage=1;
-	public static int playerFireRate=0;
+	public static int playerFireRate=2;
 	public static int playerCritChance=5;
 	public static int playerClipSize=6;
 	public static float playerReloadTime=1f;
