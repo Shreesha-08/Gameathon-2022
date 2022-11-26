@@ -32,8 +32,8 @@ public class Enemy : MonoBehaviour
         if (Hitpoints <= 0)
         {
             ScoreCounter.instance.AddPoint();
-            SFX.PlaySound("enemyDeath");
             Destroy(gameObject);
+            SFX.PlaySound("enemyDeath");
         }
     }
 

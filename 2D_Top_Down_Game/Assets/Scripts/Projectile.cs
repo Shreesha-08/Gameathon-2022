@@ -26,7 +26,7 @@ public class Projectile : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            HPRemaining.lives--;
+            PlayerStats.playerHealth--;
             DestroyProjectile();
         }
     }

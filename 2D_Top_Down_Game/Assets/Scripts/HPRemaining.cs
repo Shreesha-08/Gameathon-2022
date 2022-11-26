@@ -6,17 +6,17 @@ public class HPRemaining : MonoBehaviour
 {
     public TMP_Text livesText;
     public static int lives;
-    public static int max_lives = 10;
+    public static int max_lives;
 
     private void Start()
     {
-        lives = max_lives;
+        lives = PlayerStats.playerMaxHealth;
         livesText.text = "x" + lives;
     }
 
     // Update is called once per frame
     void Update()
     {
-        livesText.text = "x" + lives;
+        livesText.text = "x" + PlayerStats.playerHealth;
     }
 }

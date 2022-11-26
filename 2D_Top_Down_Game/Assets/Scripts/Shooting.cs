@@ -85,6 +85,7 @@ public class Shooting : MonoBehaviour
     {
         GameObject bullet = Instantiate(bluebulletPrefab, firePoint.position, firePoint.rotation);
         
+		//SFX.PlaySound("firing");
 		float dmg = damage;
         if (powerUpActive){
             dmg=damage*3f;
