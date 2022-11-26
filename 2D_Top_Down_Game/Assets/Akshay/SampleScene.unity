@@ -1087,6 +1087,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93c791b417c17dc4fa0508a8188fe327, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  score: 0
   scoreText: {fileID: 108671514}
 --- !u!114 &108671514
 MonoBehaviour:
@@ -5129,6 +5130,7 @@ GameObject:
   - component: {fileID: 810831796}
   - component: {fileID: 810831795}
   - component: {fileID: 810831797}
+  - component: {fileID: 810831798}
   m_Layer: 0
   m_Name: LevelMap
   m_TagString: Untagged
@@ -5230,6 +5232,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 18.9, y: 14.7}
   m_EdgeRadius: 0
+--- !u!114 &810831798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 810831794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc2abd178b75f24cb8f6845c0490c98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 21300000, guid: 67a5c3ad5a1fd8748af6e712c410f982, type: 3}
+  - {fileID: 21300000, guid: 1563b6f1ecbe60945ba0d74e69e24d3c, type: 3}
+  - {fileID: 21300000, guid: fef079205e8a50b489590cbe84079165, type: 3}
+  interval: 5
 --- !u!1 &813751075
 GameObject:
   m_ObjectHideFlags: 0
