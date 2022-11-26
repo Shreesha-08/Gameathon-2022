@@ -8,7 +8,6 @@ public class LevelManagement : MonoBehaviour
     private int i = 0;
     [SerializeField]
     private int interval;
-    bool levelChanged = false;
     int prevScore = 0;
     // Start is called before the first frame update
     void Start()
@@ -20,9 +19,7 @@ public class LevelManagement : MonoBehaviour
     void Update()
     {
         Debug.Log(ScoreCounter.instance.score);
-        StartCoroutine("changeBackground");
-
-            
+        StartCoroutine("changeBackground");  
     }
 
     IEnumerator changeBackground()
@@ -32,6 +29,7 @@ public class LevelManagement : MonoBehaviour
         {
             GetComponent<SpriteRenderer>().sprite = sprites[++i % 3];
             prevScore = ScoreCounter.instance.score;
+            PlayerStats.playerHealth=PlayerStats.playerMaxHealth;
         }
         StartCoroutine("changeBackground");
     }
