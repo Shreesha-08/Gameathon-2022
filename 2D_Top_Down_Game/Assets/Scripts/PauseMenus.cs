@@ -51,6 +51,8 @@ public class PauseMenus : MonoBehaviour
 
     public void Home()
     {
+        if (PauseMenus.GameIsPaused)
+            Resume();
         PlayerStats.playerMaxHealth = 10;
         PlayerStats.playerDamage = 1;
         PlayerStats.playerFireRate = 2;
