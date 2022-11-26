@@ -10,7 +10,7 @@ public class EnemySpawner : MonoBehaviour
     // private GameObject creeperPrefab;
 
     [SerializeField]
-    private float shooterInterval = 3.5f;
+    private float shooterInterval = 5f;
     [SerializeField]
     private float startShooterSpawn = 3.5f;
     // [SerializeField]

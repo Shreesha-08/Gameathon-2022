@@ -11,7 +11,7 @@ public class PauseMenus : MonoBehaviour
 
     private void Start()
     {
-        pauseMenuUI.SetActive(true);
+        pauseMenuUI.SetActive(false);
     }
 
     // Update is called once per frame
@@ -51,6 +51,14 @@ public class PauseMenus : MonoBehaviour
 
     public void Home()
     {
+        PlayerStats.playerMaxHealth = 10;
+        PlayerStats.playerDamage = 1;
+        PlayerStats.playerFireRate = 2;
+        PlayerStats.playerCritChance = 5;
+        PlayerStats.playerClipSize = 6;
+        PlayerStats.playerReloadTime = 1f;
+        PlayerStats.playerPowerUpCooldown = 1f;
+        Debug.Log(PlayerStats.playerMaxHealth);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 }

@@ -45,6 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shooterPrefab: {fileID: 2944312228600193062, guid: 392131552ba452d4f916e2a10d7e6545, type: 3}
-  creeperPrefab: {fileID: 2944312228600193062, guid: 392131552ba452d4f916e2a10d7e6545, type: 3}
-  shooterInterval: 7
-  creeperInterval: 17
+  shooterInterval: 14
+  startShooterSpawn: 3.5

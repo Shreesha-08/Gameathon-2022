@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 public class HPRemaining : MonoBehaviour
 {
     public TMP_Text livesText;
@@ -18,5 +19,12 @@ public class HPRemaining : MonoBehaviour
     void Update()
     {
         livesText.text = "x" + PlayerStats.playerHealth;
+        if (PlayerStats.playerHealth == 0)
+        {
+            SFX.PlaySound("playerDeath");
+            PlayerStats.reset();
+            SceneManager.LoadScene(2);
+
+        }
     }
 }

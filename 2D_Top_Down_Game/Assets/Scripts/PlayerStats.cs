@@ -18,6 +18,17 @@ public class PlayerStats : MonoBehaviour {
 		PlayerScore += score;
 	}
 
+	public static void reset()
+    {
+		playerMaxHealth = 10;
+		playerDamage = 1;
+		playerFireRate = 2;
+		playerCritChance = 5;
+		playerClipSize = 6;
+		playerReloadTime = 1f;
+		playerPowerUpCooldown = 3f;
+}
+
 	
 	private static int _health = playerMaxHealth;
 	public static int playerHealth {

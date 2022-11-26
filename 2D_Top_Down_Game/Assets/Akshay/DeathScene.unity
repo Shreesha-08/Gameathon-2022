@@ -814,7 +814,7 @@ GameObject:
   - component: {fileID: 641287400}
   - component: {fileID: 641287399}
   m_Layer: 5
-  m_Name: Siuuu
+  m_Name: menus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1169,7 +1169,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: 1aaedd6e44c151b49b4e1bd6bf474532, type: 3}
+      - m_Target: {fileID: 11500000, guid: b905792e96da0a949b72d564df9a4ee9, type: 3}
         m_TargetAssemblyTypeName: 
         m_MethodName: 
         m_Mode: 1
